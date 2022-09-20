@@ -89,32 +89,14 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         Expanded(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            const Text('Ultimos Cadastrados!'),
-                          ],
-                        )),
-                        Row(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const Lista()));
-                              },
-                              child: const Text(
-                                "Ver todos",
-                                style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
-                            )
-                          ],
-                        )
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              const Text('Ultimos Cadastrados!'),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -125,7 +107,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         routes: {
-          AppRoutes.FUNCIONARIO_EDIT: (_) => EditarFuncionario()
+          AppRoutes.FUNCIONARIO_EDIT: (_) => EditarFuncionario(),
+          AppRoutes.FUNCIONARIO_LIST: (_) => Lista(),
         },
       ),
     );

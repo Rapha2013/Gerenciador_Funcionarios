@@ -47,6 +47,6 @@ class Funcionarios with ChangeNotifier {
             cargo: funcionario.cargo,
             img: funcionario.img));
 
-    notifyListeners();
+    // notifyListeners();
   }
 }

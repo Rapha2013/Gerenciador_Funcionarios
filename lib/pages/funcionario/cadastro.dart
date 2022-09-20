@@ -1,6 +1,4 @@
-import 'package:client_app/provider/funcionarios.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Cadastro extends StatefulWidget {
   const Cadastro({Key? key}) : super(key: key);

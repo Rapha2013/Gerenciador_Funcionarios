@@ -1,6 +1,10 @@
 
+import 'package:client_app/pages/cargo/cadastro.dart';
+import 'package:client_app/pages/cargo/lista.dart';
 import 'package:client_app/pages/funcionario/cadastro.dart';
 import 'package:client_app/pages/funcionario/lista.dart';
+import 'package:client_app/pages/setor/cadastro.dart';
+import 'package:client_app/pages/setor/lista.dart';
 import 'package:flutter/material.dart';
 
 class MenuItens extends StatefulWidget {
@@ -50,7 +54,7 @@ class _MenuItensPage extends State<MenuItens> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Lista()),
+                MaterialPageRoute(builder: (context) => Lista()),
               );
             }),
         ListTile(
@@ -59,7 +63,7 @@ class _MenuItensPage extends State<MenuItens> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Lista()),
+                MaterialPageRoute(builder: (context) => const CadastrarCargo()),
               );
             }),
         ListTile(
@@ -68,7 +72,7 @@ class _MenuItensPage extends State<MenuItens> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Lista()),
+                MaterialPageRoute(builder: (context) => const ListaCargo()),
               );
             }),
         ListTile(
@@ -77,7 +81,7 @@ class _MenuItensPage extends State<MenuItens> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Lista()),
+                MaterialPageRoute(builder: (context) => const CadastrarSetor()),
               );
             }),
         ListTile(
@@ -86,7 +90,7 @@ class _MenuItensPage extends State<MenuItens> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Lista()),
+                MaterialPageRoute(builder: (context) => const ListaSetor()),
               );
             }),
       ],
