@@ -1,9 +1,15 @@
-class Cargo {
-  final int? id;
-  final String descricao;
+import 'package:mobx/mobx.dart';
 
-  const Cargo({
-    this.id,
-    required this.descricao,
-  });
+//flutter pub run build_runner build
+part 'cargo.g.dart';
+
+class Cargo = _Cargo with _$Cargo;
+
+abstract class _Cargo with Store {
+
+  _Cargo(this.descricao);
+
+  String id = '';
+  String descricao = '';
+
 }
