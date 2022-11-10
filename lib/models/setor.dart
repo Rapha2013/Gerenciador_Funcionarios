@@ -1,14 +1,13 @@
 import 'package:mobx/mobx.dart';
 
 //flutter pub run build_runner build
-part 'cargo.g.dart';
+part 'setor.g.dart';
 
-class Cargo = _Cargo with _$Cargo;
+class Setor = _Setor with _$Setor;
 
+abstract class _Setor with Store {
 
-abstract class _Cargo with Store {
-
-  _Cargo(this.descricao);
+  _Setor(this.descricao);
 
   String id = '';
   String descricao = '';

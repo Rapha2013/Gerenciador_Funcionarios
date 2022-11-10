@@ -1,10 +1,11 @@
-import 'package:client_app/models_views/cargo_store.dart';
+
+import 'package:client_app/models_views/funcionario_store.dart';
+import 'package:client_app/views/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
 
   final keyApplicationId = 'xuCoPAunHagdkOwZvB7YYPoIDjEZMfD9vqoZmObE';
@@ -36,7 +37,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  CargoStore cargoStore = CargoStore();
+  FuncionarioStore funcionarioStore = FuncionarioStore();
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +47,7 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: const Text("Início"),
         ),
+        drawer: const Drawer(child: MenuItens()),
         body: Column(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
@@ -97,24 +99,44 @@ class _HomePageState extends State<HomePage> {
     return SizedBox(
       height: 220,
       child: Observer(builder: (_) {
+        if (funcionarioStore.isCarregando) {
+          return const Center(
+            child: SizedBox(
+                width: 100, height: 100, child: CircularProgressIndicator()),
+          );
+        }
+
+        if (funcionarioStore.listaDeFuncionarios.isEmpty) {
+          return const Center(
+            child: SizedBox(
+              width: 300,
+              height: 100,
+              child: Text(
+                "Nenhum funcionario cadastrado!",
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+          );
+        }
+
         return ListView.builder(
           padding: const EdgeInsets.only(top: 10.0),
-          itemCount: cargoStore.listaDeCargos.length,
+          itemCount: funcionarioStore.listaDeFuncionarios.length,
           itemBuilder: (context, index) {
-        
-            final cargos = cargoStore.listaDeCargos[index];
+            final funcionarios = funcionarioStore.listaDeFuncionarios[index];
 
             ///Serve para atualizar o item
             return Observer(builder: (_) {
               return ListTile(
-                title: Text(cargos.descricao),
+                title: Text(funcionarios.nome),
+                subtitle: Text(funcionarios.idSetor),
                 trailing: Container(
                   width: 100,
                   child: Row(
                     children: [
                       IconButton(
                           onPressed: (() {
-                           print('ver fun');
+                            print('ver fun');
                           }),
                           icon: const Icon(Icons.edit, color: Colors.orange)),
                       IconButton(
