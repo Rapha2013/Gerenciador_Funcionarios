@@ -95,8 +95,22 @@ class SetorPage extends StatelessWidget {
             ///Serve para atualizar o item
             return Observer(builder: (_) {
               return ListTile(
-                leading: const Icon(Icons.person),
+                leading: CircleAvatar(
+                  child: Text(index.toString()),
+                ),
                 title: Text(setor.descricao),
+                trailing: Container(
+                  width: 100,
+                  child: Row(
+                    children: [
+                      IconButton(
+                          onPressed:  (() async {
+                            setorStore.excluirSetor(setor);
+                          }),
+                          icon: const Icon(Icons.delete, color: Colors.red))
+                    ],
+                  ),
+                ),
               );
             });
           },

@@ -1,5 +1,4 @@
 import 'package:client_app/views/cargo/lista.dart';
-import 'package:client_app/views/funcionario/cadastro.dart';
 import 'package:client_app/views/funcionario/lista.dart';
 import 'package:client_app/views/setor/lista.dart';
 import 'package:flutter/material.dart';
@@ -35,16 +34,6 @@ class _MenuItensPage extends State<MenuItens> {
           title: const Text("Início"),
           onTap: () {
             Navigator.popUntil(context, ModalRoute.withName('/'));
-          },
-        ),
-        ListTile(
-          leading: const Icon(Icons.person_add_alt_1_rounded),
-          title: const Text("Cadastrar Funcionário"),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const Cadastro()),
-            );
           },
         ),
         ListTile(

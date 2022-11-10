@@ -2,6 +2,7 @@ import 'package:client_app/models_views/cargo_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+
 class CargoPage extends StatelessWidget {
   CargoStore cargoStore = CargoStore();
 
@@ -11,6 +12,7 @@ class CargoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     void adicionarCargo() async {
       if (descricaoController.text.trim().isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -86,13 +88,27 @@ class CargoPage extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10.0),
           itemCount: cargoStore.listaDeCargos.length,
           itemBuilder: (context, index) {
-            final setor = cargoStore.listaDeCargos[index];
+            final cargo = cargoStore.listaDeCargos[index];
 
             ///Serve para atualizar o item
             return Observer(builder: (_) {
               return ListTile(
-                leading: const Icon(Icons.person),
-                title: Text(setor.descricao),
+                leading: CircleAvatar(
+                  child: Text(index.toString()),
+                ),
+                title: Text(cargo.descricao),
+                trailing: Container(
+                  width: 100,
+                  child: Row(
+                    children: [
+                      IconButton(
+                          onPressed:  (() async {
+                            cargoStore.excluirCargo(cargo);
+                          }),
+                          icon: const Icon(Icons.delete, color: Colors.red))
+                    ],
+                  ),
+                ),
               );
             });
           },

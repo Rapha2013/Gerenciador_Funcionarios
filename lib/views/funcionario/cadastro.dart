@@ -160,13 +160,13 @@ class _MyForm extends State<Cadastro> {
             onStepContinue: () {
               setState(() {
                 if (_index < _mySteps().length - 1) {
-                 
+
 
                   if (nome.text.trim().isEmpty) {
                     return print('nome invalido');
                   }
 
-                   _index = _index + 1;
+                  _index = _index + 1;
 
                 } else {
                   //Logic to check if everything is completed
@@ -200,15 +200,15 @@ class _MyForm extends State<Cadastro> {
           children: <Widget>[
             TextFormField(
               decoration: const InputDecoration(labelText: 'Nome'),
-             
+
             ),
             TextFormField(
               decoration: const InputDecoration(labelText: 'Email'),
-             
+
             ),
             TextFormField(
               decoration: const InputDecoration(labelText: 'Idade'),
-         
+
             ),
           ],
         ),
